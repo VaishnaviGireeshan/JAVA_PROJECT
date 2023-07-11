@@ -1,19 +1,20 @@
 package loopsAssignment;
 
 public class WaterTank {
-	int tankCapacity, currentTankCapacity;
+	int currentTankCapacity, tankCapacity, bucketCount,safeCapacity;
 
 	void fillingTank() {
-		while (tankCapacity < 100) {
-			tankCapacity += 10;
-			if (tankCapacity > 100) {
-				// System.out.println("TANK IS FULL ");
+		tankCapacity=tankCapacity-safeCapacity;
+		while (currentTankCapacity <= tankCapacity) {
+			currentTankCapacity += 10;
+			if (currentTankCapacity > tankCapacity) {
+				System.out.println("TANK OVERFLOW, CAN'T POUR MORE WATER!!! ");
 				break;
 			} else {
-				
+				bucketCount++;
 
-				System.out.println("TANK CAPACITY REACHED " + tankCapacity + " LITRES");
-			
+				System.out.println("Added " + bucketCount + " bucket, Tank capacity reached " + currentTankCapacity + " Litres");
+
 			}
 
 		}

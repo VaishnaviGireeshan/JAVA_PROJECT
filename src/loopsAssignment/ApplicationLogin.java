@@ -1,28 +1,39 @@
 package loopsAssignment;
 
-//import java.util.Scanner;
+import java.util.Scanner;
 
 public class ApplicationLogin {
-	String userName,passWord;
-	int count;
-//	Scanner scr = new Scanner(System.in);
+	String userName, passWord;
+	int attemptCount;
+	Scanner scr = new Scanner(System.in);
 
 	void loginToApplication() {
-		if(userName.equals("pivotAdmin")&&passWord.equals("Admin123")) {
-			//System.out.println("Enter the password");
-			//passWord=scr.next();
-//			if(passWord.equals("Admin123")) {
-			System.out.println("You are logged in to the application");	
-//			}
-			
-		}
-		else {
-			System.out.println("Incorrect User id or password. Try again");
-			
-		}
-		
-		count++;
-		
-	}
+		while (attemptCount < 3) {
+			userName = scr.next();
+			passWord = scr.next();
+			attemptCount++;
+			if (userName.equals("pivotAdmin") && passWord.equals("Admin123")) {
 
+				System.out.println("You are logged in to the application");
+
+			}
+
+			else {
+				if (attemptCount != 3) {
+					System.out.println("Incorrect User id or password. Try again");
+					if (attemptCount == 1) {
+						System.out.println("You have 2 more attempts lefts!!!");
+					}
+
+					else if (attemptCount == 2) {
+						System.out.println("You have 1 more attempts lefts!!!");
+					}
+
+				} else {
+					System.out.println("Account locked");
+				}
+			}
+
+		}
+	}
 }

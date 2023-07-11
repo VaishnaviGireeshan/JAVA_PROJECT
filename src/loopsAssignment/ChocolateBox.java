@@ -1,22 +1,21 @@
 package loopsAssignment;
 
 public class ChocolateBox {
-	int chocolateCount;
-	void addingChocolates() {
-		while(chocolateCount<=63) {
-			chocolateCount +=5;
-			if(chocolateCount>63) {
-				System.out.println("Can't add more chocolate");
-				break;
-			}
-			 else {
-					
+	int chocolateCount,boxCapacity,addingCount;
 
-					System.out.println("Number of chocolates in the box is " + chocolateCount );
-				
-				}
+	void addingChocolatesToBox() {
+		while (chocolateCount <= boxCapacity) {
+			chocolateCount += 5;
+			if (chocolateCount > boxCapacity) {
+				System.out.println("CANT'T ADD "+addingCount+" MORE,BOX OVERFLOW!!!");
+				break;
+			} else {
+
+				System.out.println("Number of chocolates in the box is " + chocolateCount);
+
+			}
 		}
-			
+
 	}
 
 }
