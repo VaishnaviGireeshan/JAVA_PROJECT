@@ -8,6 +8,7 @@ public class ApplicationLogin {
 	Scanner scr = new Scanner(System.in);
 
 	void loginToApplication() {
+		System.out.println("Enter the username and password");
 		while (attemptCount < 3) {
 			userName = scr.next();
 			passWord = scr.next();
@@ -26,7 +27,7 @@ public class ApplicationLogin {
 					}
 
 					else if (attemptCount == 2) {
-						System.out.println("You have 1 more attempts lefts!!!");
+						System.out.println("You have 1 more attempts left!!!");
 					}
 
 				} else {

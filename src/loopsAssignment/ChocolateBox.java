@@ -7,7 +7,7 @@ public class ChocolateBox {
 		while (chocolateCount <= boxCapacity) {
 			chocolateCount += 5;
 			if (chocolateCount > boxCapacity) {
-				System.out.println("CANT'T ADD "+addingCount+" MORE,BOX OVERFLOW!!!");
+				System.out.println("CANT'T ADD "+addingCount+" MORE CHOCOLATES,BOX OVERFLOW!!!");
 				break;
 			} else {
 
