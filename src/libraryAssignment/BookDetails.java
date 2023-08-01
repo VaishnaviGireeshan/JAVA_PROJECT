@@ -113,7 +113,7 @@ public class BookDetails {
 	}
 	
 	public BookGenre selectGenreOfBook() {
-		  System.out.println("\nWhich genre you want?\nFiction\nMythology\nFantasy\nPoetry\nMystry");
+		  System.out.println("\nSelect genre\n---------------- \nFiction\nMythology\nFantasy\nPoetry\nMystry");
 	        String genreOfBook = sc.nextLine();
 
 	        // Convert the user input to the corresponding BookGenre enum value
