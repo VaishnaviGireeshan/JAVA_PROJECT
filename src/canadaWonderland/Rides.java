@@ -1,7 +1,5 @@
 package canadaWonderland;
 
-import java.util.Scanner;
-
 public class Rides {
 	// to implement encapsulation variables are declared as private,
 	// only accessing (getter and setter)methods
@@ -15,7 +13,7 @@ public class Rides {
 	public Rides(String typeOfRide, int minGuestHeight, int minGuestWeight, ThrillLevel thrill) {
 		this.typeOfRide = typeOfRide;
 		this.minGuestHeight = minGuestHeight;
-		this.minGuestHeight = minGuestHeight;
+		this.minGuestWeight = minGuestHeight;
 		this.levelOfThrill = thrill;
 
 	}

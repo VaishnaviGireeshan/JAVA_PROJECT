@@ -5,15 +5,16 @@ import java.util.Scanner;
 public class FamilyKids extends Rides {
 	String rideName;
 	ThrillLevel thrillLevel;
-	Scanner sc = new Scanner(System.in);
+	
 	private FamilyKids[] familyKidsArray = new FamilyKids[8];
-
+	static Scanner sc = new Scanner(System.in);
 	public FamilyKids(String typeOfRide, String rideName, int minGuestHeight, int minGuestWeight,
-            ThrillLevel thrillLevel) {
-        super(typeOfRide, minGuestHeight, minGuestWeight, thrillLevel);
-        this.rideName = rideName;
-        this.thrillLevel = thrillLevel;
-    }
+			ThrillLevel thrillLevel) {
+		super(typeOfRide, minGuestHeight, minGuestWeight, thrillLevel);
+		this.rideName = rideName;
+		this.thrillLevel = thrillLevel;
+	}
+
 	private static FamilyKids[] initializeFamilyKidsRides() {
 		FamilyKids[] familyKidsArray = new FamilyKids[8];
 		familyKidsArray[0] = new FamilyKids("FamilyKids", "Antique Carrousel", 46, 20, ThrillLevel.LOW);
@@ -28,34 +29,36 @@ public class FamilyKids extends Rides {
 
 	}
 
-	 public static void displayAvailableFamilyKidsRides() {
-	        FamilyKids[] familyKidsArray = initializeFamilyKidsRides();
-	        System.out.println("Available Family Kids Rides are:");
-	        for (FamilyKids familyKids : familyKidsArray) {
-	            System.out.println(familyKids.rideName);
-	        }
-	    }
-	 public static FamilyKids findFamilyKidsByName(String name) {
-		    FamilyKids[] familyKidsArray = initializeFamilyKidsRides();
-		    for (FamilyKids familyKids : familyKidsArray) {
-		        if (familyKids.rideName.equalsIgnoreCase(name)) {
-		            return familyKids;
-		        }
-		    }
-		    return null;
+	public static void displayAvailableFamilyKidsRides() {
+		FamilyKids[] familyKidsArray = initializeFamilyKidsRides();
+		System.out.println("Available Family Kids Rides are:");
+		for (FamilyKids familyKids : familyKidsArray) {
+			System.out.println(familyKids.rideName);
 		}
+	}
 
-	 public static void selectAndDisplayRideDetails() {
-	        System.out.println("\nEnter the family kids ride you want to experience:");
-	        Scanner sc = new Scanner(System.in);
-	        String familyKidsName = sc.nextLine();
-	        FamilyKids familyKidsRide = findFamilyKidsByName(familyKidsName);
-	        if (familyKidsRide != null) {
-	            familyKidsRide.displayRideDetails();
-	        } else {
-	            System.out.println("Ride not found.");
-	        }
-	    }
+	public static FamilyKids findFamilyKidsByName(String name) {
+		FamilyKids[] familyKidsArray = initializeFamilyKidsRides();
+		for (FamilyKids familyKids : familyKidsArray) {
+			if (familyKids.rideName.equalsIgnoreCase(name)) {
+				return familyKids;
+			}
+		}
+		return null;
+	}
+
+	public static void selectAndDisplayRideDetails() {
+		System.out.println("\nEnter the family kids ride you want to experience:");
+
+		String familyKidsName = sc.nextLine();
+		FamilyKids familyKidsRide = findFamilyKidsByName(familyKidsName);
+		if (familyKidsRide != null) {
+			familyKidsRide.displayRideDetails();
+		} else {
+			System.out.println("Ride not found.");
+		}
+	}
+
 	@Override
 	public void displayRideDetails() {
 		super.displayRideDetails();
