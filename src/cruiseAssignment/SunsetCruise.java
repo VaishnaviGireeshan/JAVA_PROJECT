@@ -17,5 +17,4 @@ public class SunsetCruise extends Cruise {
 		return childPrice * numDays * numChildren;
 	}
 
-
 }

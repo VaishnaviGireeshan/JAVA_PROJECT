@@ -1,6 +1,6 @@
 package cruiseAssignment;
 
-public class DiscoveryCruise extends Cruise{
+public class DiscoveryCruise extends Cruise {
 
 	public DiscoveryCruise() {
 		super("Discovery Cruise", 39.99, 9.99, 4);
@@ -15,5 +15,5 @@ public class DiscoveryCruise extends Cruise{
 	public double calculateChildPrice(int numChildren) {
 		return childPrice * numDays * numChildren;
 	}
-	
+
 }

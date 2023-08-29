@@ -13,9 +13,8 @@ abstract class Cruise {
 		this.numDays = days;
 
 	}
-
+	//abstract method  implemented in  subclasses
 	public abstract double calculateAdultPrice(int numAdults);
-	
 
 	public abstract double calculateChildPrice(int numChildren);
 
