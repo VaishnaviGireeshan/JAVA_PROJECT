@@ -6,19 +6,19 @@ public class BookIssuingOperations {
 
 	int count = 0;
 	ReaderDetails objRdetail = new ReaderDetails(null, null, null, 0);
-	BookDetails objBkDetails = new BookDetails(null, null, null, false);
-	LibraryDetails objLbDetails = new LibraryDetails(null);
+	Books objBkDetails = new Books(null, null, null, false);
+	Library objLbDetails = new Library(null);
 	Scanner sc = new Scanner(System.in);
-	BookDetails[] allBooks;
+	Books[] allBooks;
 	 // Arrays to store filtered books based on genre and library
-	BookDetails[] filteredBooks;
-	BookDetails[] filteredBooksByLibraryAndGenre;
+	Books[] filteredBooks;
+	Books[] filteredBooksByLibraryAndGenre;
 	
-	  public void setAllBooks(BookDetails[] books) {
+	  public void setAllBooks(Books[] books) {
 	        allBooks = books;
 	    }
 
-	public void displayBooksByGenre(BookDetails[] allBooks, BookDetails.BookGenre genre) {
+	public void displayBooksByGenre(Books[] allBooks, Books.BookGenre genre) {
 		if (genre == null) {
 			System.out.println("No genre selected.");
 			return;
@@ -33,7 +33,7 @@ public class BookIssuingOperations {
 
 		if ( countByGenre > 0) {
 
-			BookDetails[] filteredBooksByGenre = new BookDetails[countByGenre];
+			Books[] filteredBooksByGenre = new Books[countByGenre];
 	            int index = 0;
 
 	            for (int i = 0; i < allBooks.length; i++) {
@@ -43,7 +43,7 @@ public class BookIssuingOperations {
 	                }
 	            }
 
-			System.out.println("Books of genre " + genre.getGenreOfBook() + ":");
+			System.out.println("Books of genre " + genre.getGenreOfBook() + "------------------");
             for (int i = 0; i < countByGenre; i++) {
                 System.out.println(filteredBooksByGenre[i].bookName + " by " + filteredBooksByGenre[i].authorName);
             }
@@ -53,7 +53,7 @@ public class BookIssuingOperations {
 	}
 	
 
-	public void issueBookToReaders(BookDetails[] allBooks) {
+	public void issueBookToReaders(Books[] allBooks) {
 		while (objRdetail.continueIssue) {
 			System.out.println("Enter the name of the book that you want to be issued");
 			String bookName = sc.nextLine();
@@ -92,8 +92,10 @@ public class BookIssuingOperations {
 					objRdetail.continueIssue = false;
 					break; // Exit the loop if the reader does not want to continue
 				}
-				BookDetails.BookGenre selectedGenre = objBkDetails.selectGenreOfBook();
+				while(objRdetail.getNumOfBooksGranted()<=objRdetail.numOfBooksGranted) {
+				Books.BookGenre selectedGenre = objBkDetails.selectGenreOfBook();
 				displayBooksByGenre(filteredBooks, selectedGenre);
+				}
 			}
 		}
 	}

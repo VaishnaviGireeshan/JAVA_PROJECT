@@ -13,16 +13,17 @@ public class ReaderDetails {
 	int count = 0;
 	boolean continueIssue = true;
 	Scanner sc = new Scanner(System.in);
-	LibraryDetails objLbDetails = new LibraryDetails(null);
+	Library objLbDetails = new Library(null);
 
 	public ReaderDetails(String rType, String rName, String rid, int numBooksGranted) {
 		readerType = rType;
 		readerName = rName;
 		readerID = rid;
 		numOfBooksGranted = numBooksGranted;
+		
 	}
 
-	public ReaderDetails() {
+	public ReaderDetails() {//empty constructor
 	}
 
 	public String getReaderID() {
@@ -41,16 +42,14 @@ public class ReaderDetails {
 		return readerName;
 	}
 
-	public void getReaderDetails() {
+	public boolean getReaderDetails(boolean isLoginSuccessfull) {
 
-		ReaderDetails sam = new ReaderDetails("Premium", "Sam", "R5346", 3);
-		ReaderDetails jon = new ReaderDetails("Basic", "Jon", "R7689", 2);
-		ReaderDetails kate = new ReaderDetails("Basic", "Kate", "R3789", 2);
-		ReaderDetails rick = new ReaderDetails("Premium", "Rick", "R4570", 3);
+		ReaderDetails sam = new ReaderDetails("Premium", "Sam", "R101", 3);
+		ReaderDetails jon = new ReaderDetails("Basic", "Jon", "R102", 2);
+		ReaderDetails kate = new ReaderDetails("Basic", "Kate", "R103", 2);
+		ReaderDetails rick = new ReaderDetails("Premium", "Rick", "R104", 3);
 
 		ReaderDetails[] allReaders = { sam, jon, kate, rick };
-
-		ReaderDetails enteredReaderId = null;
 
 		System.out.println("Enter your reader id");
 		enteredRid = sc.nextLine();
@@ -59,14 +58,15 @@ public class ReaderDetails {
 		int totalBooks;
 
 		for (int i = 0; i < allReaders.length; i++) {
-			if (allReaders[i].getReaderID().equals(enteredRid)) {
-				enteredReaderId = allReaders[i];
+			if (allReaders[i].getReaderID().equalsIgnoreCase(enteredRid)) {
+				isLoginSuccessfull=true;
 				name = allReaders[i].getReaderName();
 				totalBooks = allReaders[i].getNumOfBooksGranted();
 				System.out.println("Hi " + name + ", You can take " + totalBooks + " books");
 				break;
 			}
 		}
+		return isLoginSuccessfull;
 
 	}
 
